@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000; // process.env.PORT this will be ture if app/server is running by HEROKU
 const app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
@@ -64,6 +65,6 @@ app.get('/bad', (req, res) => {
 });
 
 // app.listen(3000);
-app.listen(3000, (req) => {
-    console.log();
+app.listen(port, (req) => {
+    console.log(`Server is running on ${port}`);
 });
